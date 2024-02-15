@@ -5,10 +5,10 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class HttpBinApi implements ICredentialType {
-	name = 'httpbinApi';
-	displayName = 'HttpBin API';
-	documentationUrl = '<your-docs-url>';
+export class BudibaseApi implements ICredentialType {
+	name = 'budibaseApi';
+	displayName = 'Budibase DB Public API';
+	documentationUrl = 'https://docs.budibase.com/docs/public-api#how-to-get-your-api-key';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'Token',
@@ -20,7 +20,7 @@ export class HttpBinApi implements ICredentialType {
 			displayName: 'Domain',
 			name: 'domain',
 			type: 'string',
-			default: 'https://httpbin.org',
+			default: 'https://budibase.app/api/v1/',
 		},
 	];
 
