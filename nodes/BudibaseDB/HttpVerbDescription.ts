@@ -15,7 +15,8 @@ export const httpVerbOperations: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'POST',
-						url: '/ta_bb_employee/rows',
+						url: '={{"/tables/" + $parameter["tableId"] + "/rows"}}',
+						body: '={{$parameter["payload"]}}'
 					},
 				},
 			},
@@ -26,7 +27,8 @@ export const httpVerbOperations: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'POST',
-						url: '/ta_bb_employee/rows/search',
+						url: '={{"/tables/" + $parameter["tableId"] + "/rows/search"}}',
+						body: '={{$parameter["payload"]}}'
 					},
 				},
 			},

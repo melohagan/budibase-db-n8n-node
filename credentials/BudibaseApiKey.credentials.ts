@@ -26,7 +26,7 @@ export class BudibaseApiKey implements ICredentialType {
 			displayName: 'Domain',
 			name: 'domain',
 			type: 'string',
-			default: 'https://tenant.budibase.app/api/public/v1/tables',
+			default: 'https://tenant.budibase.app/api/public/v1',
 		},
 	];
 
@@ -48,7 +48,7 @@ export class BudibaseApiKey implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			method: 'POST',
-			url: '/search',
+			url: '/tables/search',
 			baseURL: '={{$credentials?.domain}}',
 		},
 		rules: [{
