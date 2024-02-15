@@ -3,12 +3,12 @@ import { httpVerbFields, httpVerbOperations } from './HttpVerbDescription';
 
 export class BudibaseDB implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'BudibaseDB',
+		displayName: 'Budibase DB',
 		name: 'budibaseDB',
 		icon: 'file:budibase.svg',
 		group: ['transform'],
 		version: 1,
-		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
+		subtitle: '={{$parameter["operation"]',
 		description: 'Interact with Budibase DB Public API',
 		defaults: {
 			name: 'BudibaseDB',
@@ -17,44 +17,25 @@ export class BudibaseDB implements INodeType {
 		outputs: ['main'],
 		credentials: [
 			{
-				name: 'apiKey',
-				required: false,
+				name: 'budibaseApiKey',
+				required: true,
 			},
 		],
 		requestDefaults: {
-			baseURL: 'https://budibase.app/api/public/v1/',
+			baseURL: '={{$credentials?.domain}}',
 			url: '',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 			},
 		},
-		/**
-		 * In the properties array we have two mandatory options objects required
-		 *
-		 * [Resource & Operation]
-		 *
-		 * https://docs.n8n.io/integrations/creating-nodes/code/create-first-node/#resources-and-operations
-		 *
-		 * In our example, the operations are separated into their own file (HTTPVerbDescription.ts)
-		 * to keep this class easy to read.
-		 *
-		 */
 		properties: [
 			{
-				displayName: 'Resource',
-				name: 'resource',
-				type: 'options',
-				noDataExpression: true,
-				options: [
-					{
-						name: 'HTTP Verb',
-						value: 'httpVerb',
-					},
-				],
-				default: 'httpVerb',
+				displayName: 'Table ID',
+				name: 'tableId',
+				default: '',
+				type: 'string',
 			},
-
 			...httpVerbOperations,
 			...httpVerbFields,
 		],

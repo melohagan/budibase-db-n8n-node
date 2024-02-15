@@ -5,14 +5,20 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class BudibaseApi implements ICredentialType {
-	name = 'budibaseApi';
+export class BudibaseApiKey implements ICredentialType {
+	name = 'budibaseApiKey';
 	displayName = 'Budibase DB Public API';
 	documentationUrl = 'https://docs.budibase.com/docs/public-api#how-to-get-your-api-key';
 	properties: INodeProperties[] = [
 		{
-			displayName: 'Token',
-			name: 'token',
+			displayName: 'API Key',
+			name: 'apiKey',
+			type: 'string',
+			default: '',
+		},
+		{
+			displayName: 'APP ID',
+			name: 'appId',
 			type: 'string',
 			default: '',
 		},
@@ -20,7 +26,7 @@ export class BudibaseApi implements ICredentialType {
 			displayName: 'Domain',
 			name: 'domain',
 			type: 'string',
-			default: 'https://budibase.app/api/v1/',
+			default: 'https://tenant.budibase.app/api/public/v1/tables',
 		},
 	];
 
@@ -32,7 +38,8 @@ export class BudibaseApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				Authorization: '={{"Bearer " + $credentials.token}}',
+				"x-budibase-api-key": '={{$credentials.apiKey}}',
+				"x-budibase-app-id": '={{$credentials.appId}}'
 			},
 		},
 	};
@@ -40,8 +47,16 @@ export class BudibaseApi implements ICredentialType {
 	// The block below tells how this credential can be tested
 	test: ICredentialTestRequest = {
 		request: {
+			method: 'POST',
+			url: '/search',
 			baseURL: '={{$credentials?.domain}}',
-			url: '/bearer',
 		},
+		rules: [{
+			type: "responseCode",
+			properties: {
+				value: 200,
+				message: "OK"
+			}
+		}]
 	};
 }
