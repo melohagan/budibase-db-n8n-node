@@ -9,8 +9,44 @@ export const httpVerbOperations: INodeProperties[] = [
 		noDataExpression: true,
 		options: [
 			{
+				name: 'Get application',
+				value: 'getapp',
+				action: 'Retrieve an application',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '={{"/applications/" + $parameter["appId"]}}',
+					},
+				},
+			},
+			{
+				name: 'Unpublish application',
+				value: 'unpublish',
+				action: 'Unpublish an application',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '={{"/applications/" + $parameter["appId"] + "/unpublish"}}',
+					},
+				},
+			},
+			{
+				name: 'Search applications',
+				value: 'searchapp',
+				action: 'Search for application',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '/applications/search',
+						body: {
+							name: '={{$parameter["appName"]}}'
+						}
+					},
+				},
+			},
+			{
 				name: 'Create row',
-				value: 'create',
+				value: 'createrow',
 				action: 'Create a row',
 				routing: {
 					request: {
@@ -22,7 +58,7 @@ export const httpVerbOperations: INodeProperties[] = [
 			},
 			{
 				name: 'Search rows',
-				value: 'search',
+				value: 'searchrow',
 				action: 'Search for rows',
 				routing: {
 					request: {
@@ -35,18 +71,4 @@ export const httpVerbOperations: INodeProperties[] = [
 		],
 		default: 'create',
 	},
-];
-
-const jsonOperation: INodeProperties[] = [
-	{
-		displayName: 'Payload',
-		name: 'payload',
-		default: '',
-		description: "The JSON request body",
-		type: 'json',
-	},
-];
-
-export const httpVerbFields: INodeProperties[] = [
-	...jsonOperation,
 ];
