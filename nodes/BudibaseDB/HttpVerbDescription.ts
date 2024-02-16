@@ -9,7 +9,7 @@ export const httpVerbOperations: INodeProperties[] = [
 		noDataExpression: true,
 		options: [
 			{
-				name: 'Get application',
+				name: 'Get Application',
 				value: 'getapp',
 				action: 'Retrieve an application',
 				routing: {
@@ -20,7 +20,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Unpublish application',
+				name: 'Unpublish Application',
 				value: 'unpublish',
 				action: 'Unpublish an application',
 				routing: {
@@ -31,7 +31,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Search applications',
+				name: 'Search Applications',
 				value: 'searchapp',
 				action: 'Search for application',
 				routing: {
@@ -45,7 +45,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Create table',
+				name: 'Create Table',
 				value: 'createtable',
 				action: 'Create a table',
 				routing: {
@@ -61,7 +61,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Update table',
+				name: 'Update Table',
 				value: 'updatetable',
 				action: 'Update a table',
 				routing: {
@@ -77,7 +77,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Delete table',
+				name: 'Delete Table',
 				value: 'deletetable',
 				action: 'Delete a table',
 				routing: {
@@ -88,7 +88,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Get table',
+				name: 'Get Table',
 				value: 'gettable',
 				action: 'Retrieve a table',
 				routing: {
@@ -99,7 +99,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Search tables',
+				name: 'Search Tables',
 				value: 'searchtable',
 				action: 'Search for tables',
 				routing: {
@@ -113,7 +113,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Create row',
+				name: 'Create Row',
 				value: 'createrow',
 				action: 'Create a row',
 				routing: {
@@ -125,7 +125,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Update row',
+				name: 'Update Row',
 				value: 'updaterow',
 				action: 'Update a row',
 				routing: {
@@ -137,7 +137,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Delete row',
+				name: 'Delete Row',
 				value: 'deleterow',
 				action: 'Delete a row',
 				routing: {
@@ -148,7 +148,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Get row',
+				name: 'Get Row',
 				value: 'getrow',
 				action: 'Retrieve a row',
 				routing: {
@@ -159,7 +159,7 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Search rows',
+				name: 'Search Rows',
 				value: 'searchrow',
 				action: 'Search for rows',
 				routing: {

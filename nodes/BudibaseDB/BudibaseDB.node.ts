@@ -17,7 +17,7 @@ export class BudibaseDB implements INodeType {
 		outputs: ['main'],
 		credentials: [
 			{
-				name: 'budibaseApiKey',
+				name: 'budibaseApi',
 				required: true,
 			},
 		],
@@ -65,7 +65,7 @@ export class BudibaseDB implements INodeType {
 				}
 			},
 			{
-				displayName: 'App name starts with',
+				displayName: 'App Name Starts With',
 				name: 'appName',
 				default: '',
 				type: 'string',
@@ -76,7 +76,7 @@ export class BudibaseDB implements INodeType {
 				}
 			},
 			{
-				displayName: 'Table name starts with',
+				displayName: 'Table Name Starts With',
 				name: 'tableNameStartsWith',
 				default: '',
 				type: 'string',
@@ -87,7 +87,7 @@ export class BudibaseDB implements INodeType {
 				}
 			},
 			{
-				displayName: 'Table name',
+				displayName: 'Table Name',
 				name: 'tableName',
 				default: '',
 				type: 'string',
@@ -98,7 +98,7 @@ export class BudibaseDB implements INodeType {
 				}
 			},
 			{
-				displayName: 'Primary display',
+				displayName: 'Primary Display',
 				name: 'primaryDisplay',
 				description: 'The name of the column which should be used in relationship tags when relating to this table.',
 				default: '',
@@ -110,7 +110,7 @@ export class BudibaseDB implements INodeType {
 				}
 			},
 			{
-				displayName: 'Table schema',
+				displayName: 'Table Schema',
 				name: 'tableSchema',
 				default: '{\n\t"name": "string",\n\t"count": "number"\n}',
 				description: "The table schema JSON request body",
@@ -134,7 +134,7 @@ export class BudibaseDB implements INodeType {
 				}
 			},
 			{
-				displayName: 'Query payload',
+				displayName: 'Query Payload',
 				name: 'querypayload',
 				default: `{\n\t"query": {\n\t\t"string": {\n\t\t\t\t\t\n\t\t}\n\t}\n}`,
 				description: "The JSON request body",

@@ -5,8 +5,8 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class BudibaseApiKey implements ICredentialType {
-	name = 'budibaseApiKey';
+export class BudibaseApi implements ICredentialType {
+	name = 'budibaseApi';
 	displayName = 'Budibase DB Public API';
 	documentationUrl = 'https://docs.budibase.com/docs/public-api#how-to-get-your-api-key';
 	properties: INodeProperties[] = [
@@ -14,6 +14,9 @@ export class BudibaseApiKey implements ICredentialType {
 			displayName: 'API Key',
 			name: 'apiKey',
 			type: 'string',
+			typeOptions: {
+				password: true
+			},
 			default: '',
 		},
 		{
