@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-budibasedb",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Use the Budibase Public API to manage apps, tables and rows",
   "keywords": [
     "n8n-community-node-package"

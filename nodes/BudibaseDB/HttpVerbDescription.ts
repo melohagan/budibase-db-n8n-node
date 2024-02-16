@@ -9,38 +9,14 @@ export const httpVerbOperations: INodeProperties[] = [
 		noDataExpression: true,
 		options: [
 			{
-				name: 'Get Application',
-				value: 'getapp',
-				action: 'Retrieve an application',
-				routing: {
-					request: {
-						method: 'GET',
-						url: '={{"/applications/" + $parameter["appId"]}}',
-					},
-				},
-			},
-			{
-				name: 'Unpublish Application',
-				value: 'unpublish',
-				action: 'Unpublish an application',
+				name: 'Create Row',
+				value: 'createrow',
+				action: 'Create a row',
 				routing: {
 					request: {
 						method: 'POST',
-						url: '={{"/applications/" + $parameter["appId"] + "/unpublish"}}',
-					},
-				},
-			},
-			{
-				name: 'Search Applications',
-				value: 'searchapp',
-				action: 'Search for application',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/applications/search',
-						body: {
-							name: '={{$parameter["appName"]}}'
-						}
+						url: '={{"/tables/" + $parameter["tableId"] + "/rows"}}',
+						body: `={{JSON.parse($parameter["payload"])}}`,
 					},
 				},
 			},
@@ -61,18 +37,13 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Update Table',
-				value: 'updatetable',
-				action: 'Update a table',
+				name: 'Delete Row',
+				value: 'deleterow',
+				action: 'Delete a row',
 				routing: {
 					request: {
-						method: 'PUT',
-						url: '={{"/tables/" + $parameter["tableId"]}}',
-						body: {
-							name: '={{$parameter["tableName"]}}',
-							primaryDisplay: '={{$parameter["primaryDisplay"]}}',
-							schema: `={{JSON.parse($parameter["tableSchema"])}}`
-						}
+						method: 'DELETE',
+						url: '={{"/tables/" + $parameter["tableId"] + "/rows/" + $parameter["rowId"]}}',
 					},
 				},
 			},
@@ -88,6 +59,28 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
+				name: 'Get Application',
+				value: 'getapp',
+				action: 'Retrieve an application',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '={{"/applications/" + $parameter["appId"]}}',
+					},
+				},
+			},
+			{
+				name: 'Get Row',
+				value: 'getrow',
+				action: 'Retrieve a row',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '={{"/tables/" + $parameter["tableId"] + "/rows/" + $parameter["rowId"]}}',
+					},
+				},
+			},
+			{
 				name: 'Get Table',
 				value: 'gettable',
 				action: 'Retrieve a table',
@@ -95,6 +88,32 @@ export const httpVerbOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '={{"/tables/" + $parameter["tableId"]}}',
+					},
+				},
+			},
+			{
+				name: 'Search Applications',
+				value: 'searchapp',
+				action: 'Search for application',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '/applications/search',
+						body: {
+							name: '={{$parameter["appName"]}}'
+						}
+					},
+				},
+			},
+			{
+				name: 'Search Rows',
+				value: 'searchrow',
+				action: 'Search for rows',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '={{"/tables/" + $parameter["tableId"] + "/rows/search"}}',
+						body: `={{JSON.parse($parameter["querypayload"])}}`,
 					},
 				},
 			},
@@ -113,14 +132,13 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Create Row',
-				value: 'createrow',
-				action: 'Create a row',
+				name: 'Unpublish Application',
+				value: 'unpublish',
+				action: 'Unpublish an application',
 				routing: {
 					request: {
 						method: 'POST',
-						url: '={{"/tables/" + $parameter["tableId"] + "/rows"}}',
-						body: `={{JSON.parse($parameter["payload"])}}`,
+						url: '={{"/applications/" + $parameter["appId"] + "/unpublish"}}',
 					},
 				},
 			},
@@ -137,36 +155,18 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Delete Row',
-				value: 'deleterow',
-				action: 'Delete a row',
+				name: 'Update Table',
+				value: 'updatetable',
+				action: 'Update a table',
 				routing: {
 					request: {
-						method: 'DELETE',
-						url: '={{"/tables/" + $parameter["tableId"] + "/rows/" + $parameter["rowId"]}}',
-					},
-				},
-			},
-			{
-				name: 'Get Row',
-				value: 'getrow',
-				action: 'Retrieve a row',
-				routing: {
-					request: {
-						method: 'GET',
-						url: '={{"/tables/" + $parameter["tableId"] + "/rows/" + $parameter["rowId"]}}',
-					},
-				},
-			},
-			{
-				name: 'Search Rows',
-				value: 'searchrow',
-				action: 'Search for rows',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '={{"/tables/" + $parameter["tableId"] + "/rows/search"}}',
-						body: `={{JSON.parse($parameter["querypayload"])}}`,
+						method: 'PUT',
+						url: '={{"/tables/" + $parameter["tableId"]}}',
+						body: {
+							name: '={{$parameter["tableName"]}}',
+							primaryDisplay: '={{$parameter["primaryDisplay"]}}',
+							schema: `={{JSON.parse($parameter["tableSchema"])}}`
+						}
 					},
 				},
 			},
