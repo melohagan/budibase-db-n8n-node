@@ -39,7 +39,7 @@ export class BudibaseApiKey implements ICredentialType {
 		properties: {
 			headers: {
 				"x-budibase-api-key": '={{$credentials.apiKey}}',
-				"x-budibase-app-id": '={{$credentials.appId}}'
+				"x-budibase-app-id": '={{$credentials.appId}}',
 			},
 		},
 	};

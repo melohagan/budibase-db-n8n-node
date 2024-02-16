@@ -16,7 +16,7 @@ export const httpVerbOperations: INodeProperties[] = [
 					request: {
 						method: 'POST',
 						url: '={{"/tables/" + $parameter["tableId"] + "/rows"}}',
-						body: '={{$parameter["payload"]}}'
+						body: `={{JSON.parse($parameter["payload"])}}`,
 					},
 				},
 			},
@@ -28,7 +28,7 @@ export const httpVerbOperations: INodeProperties[] = [
 					request: {
 						method: 'POST',
 						url: '={{"/tables/" + $parameter["tableId"] + "/rows/search"}}',
-						body: '={{$parameter["payload"]}}'
+						body: `={{JSON.parse($parameter["payload"])}}`,
 					},
 				},
 			},
