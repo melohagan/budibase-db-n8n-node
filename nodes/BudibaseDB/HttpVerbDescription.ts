@@ -125,6 +125,40 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
+				name: 'Update row',
+				value: 'updaterow',
+				action: 'Update a row',
+				routing: {
+					request: {
+						method: 'PUT',
+						url: '={{"/tables/" + $parameter["tableId"] + "/rows/" + $parameter["rowId"]}}',
+						body: `={{JSON.parse($parameter["payload"])}}`,
+					},
+				},
+			},
+			{
+				name: 'Delete row',
+				value: 'deleterow',
+				action: 'Delete a row',
+				routing: {
+					request: {
+						method: 'DELETE',
+						url: '={{"/tables/" + $parameter["tableId"] + "/rows/" + $parameter["rowId"]}}',
+					},
+				},
+			},
+			{
+				name: 'Get row',
+				value: 'getrow',
+				action: 'Retrieve a row',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '={{"/tables/" + $parameter["tableId"] + "/rows/" + $parameter["rowId"]}}',
+					},
+				},
+			},
+			{
 				name: 'Search rows',
 				value: 'searchrow',
 				action: 'Search for rows',
@@ -132,11 +166,11 @@ export const httpVerbOperations: INodeProperties[] = [
 					request: {
 						method: 'POST',
 						url: '={{"/tables/" + $parameter["tableId"] + "/rows/search"}}',
-						body: `={{JSON.parse($parameter["payload"])}}`,
+						body: `={{JSON.parse($parameter["querypayload"])}}`,
 					},
 				},
 			},
 		],
-		default: 'create',
+		default: 'createrow',
 	},
 ];

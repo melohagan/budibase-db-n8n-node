@@ -49,7 +49,18 @@ export class BudibaseDB implements INodeType {
 				type: 'string',
 				displayOptions: {
 					show: {
-						operation: ["createrow", "searchrow", "updatetable", "deletetable", "gettable"]
+						operation: ["createrow", "updaterow", "deleterow", "getrow", "searchrow", "updatetable", "deletetable", "gettable"]
+					}
+				}
+			},
+			{
+				displayName: 'Row ID',
+				name: 'rowId',
+				default: '',
+				type: 'string',
+				displayOptions: {
+					show: {
+						operation: ["updaterow", "deleterow", "getrow"]
 					}
 				}
 			},
@@ -118,7 +129,7 @@ export class BudibaseDB implements INodeType {
 				type: 'json',
 				displayOptions: {
 					show: {
-						operation: ["createrow"]
+						operation: ["createrow", "updaterow"]
 					}
 				}
 			},
