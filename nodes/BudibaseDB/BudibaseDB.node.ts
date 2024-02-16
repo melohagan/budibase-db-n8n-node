@@ -100,7 +100,7 @@ export class BudibaseDB implements INodeType {
 			{
 				displayName: 'Primary Display',
 				name: 'primaryDisplay',
-				description: 'The name of the column which should be used in relationship tags when relating to this table.',
+				description: 'The name of the column which should be used in relationship tags when relating to this table',
 				default: '',
 				type: 'string',
 				displayOptions: {
