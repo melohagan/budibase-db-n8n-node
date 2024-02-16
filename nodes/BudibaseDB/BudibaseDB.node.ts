@@ -49,7 +49,7 @@ export class BudibaseDB implements INodeType {
 				type: 'string',
 				displayOptions: {
 					show: {
-						operation: ["createrow", "searchrow"]
+						operation: ["createrow", "searchrow", "updatetable", "deletetable", "gettable"]
 					}
 				}
 			},
@@ -61,6 +61,52 @@ export class BudibaseDB implements INodeType {
 				displayOptions: {
 					show: {
 						operation: ["searchapp"]
+					}
+				}
+			},
+			{
+				displayName: 'Table name starts with',
+				name: 'tableNameStartsWith',
+				default: '',
+				type: 'string',
+				displayOptions: {
+					show: {
+						operation: ["searchtable"]
+					}
+				}
+			},
+			{
+				displayName: 'Table name',
+				name: 'tableName',
+				default: '',
+				type: 'string',
+				displayOptions: {
+					show: {
+						operation: ["createtable", "updatetable"]
+					}
+				}
+			},
+			{
+				displayName: 'Primary display',
+				name: 'primaryDisplay',
+				description: 'The name of the column which should be used in relationship tags when relating to this table.',
+				default: '',
+				type: 'string',
+				displayOptions: {
+					show: {
+						operation: ["createtable", "updatetable"]
+					}
+				}
+			},
+			{
+				displayName: 'Table schema',
+				name: 'tableSchema',
+				default: '{\n\t"name": "string",\n\t"count": "number"\n}',
+				description: "The table schema JSON request body",
+				type: 'json',
+				displayOptions: {
+					show: {
+						operation: ["createtable", "updatetable"]
 					}
 				}
 			},

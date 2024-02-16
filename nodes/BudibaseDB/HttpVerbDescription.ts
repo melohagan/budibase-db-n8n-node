@@ -45,6 +45,74 @@ export const httpVerbOperations: INodeProperties[] = [
 				},
 			},
 			{
+				name: 'Create table',
+				value: 'createtable',
+				action: 'Create a table',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '/tables',
+						body: {
+							name: '={{$parameter["tableName"]}}',
+							primaryDisplay: '={{$parameter["primaryDisplay"]}}',
+							schema: `={{JSON.parse($parameter["tableSchema"])}}`
+						}
+					},
+				},
+			},
+			{
+				name: 'Update table',
+				value: 'updatetable',
+				action: 'Update a table',
+				routing: {
+					request: {
+						method: 'PUT',
+						url: '={{"/tables/" + $parameter["tableId"]}}',
+						body: {
+							name: '={{$parameter["tableName"]}}',
+							primaryDisplay: '={{$parameter["primaryDisplay"]}}',
+							schema: `={{JSON.parse($parameter["tableSchema"])}}`
+						}
+					},
+				},
+			},
+			{
+				name: 'Delete table',
+				value: 'deletetable',
+				action: 'Delete a table',
+				routing: {
+					request: {
+						method: 'DELETE',
+						url: '={{"/tables/" + $parameter["tableId"]}}',
+					},
+				},
+			},
+			{
+				name: 'Get table',
+				value: 'gettable',
+				action: 'Retrieve a table',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '={{"/tables/" + $parameter["tableId"]}}',
+					},
+				},
+			},
+			{
+				name: 'Search tables',
+				value: 'searchtable',
+				action: 'Search for tables',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '/tables/search',
+						body: {
+							name: '={{$parameter["tableNameStartsWith"]}}',
+						}
+					},
+				},
+			},
+			{
 				name: 'Create row',
 				value: 'createrow',
 				action: 'Create a row',
